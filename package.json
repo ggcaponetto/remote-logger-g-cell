@@ -1,0 +1,25 @@
+{
+    "name": "remote-logger-g-cell",
+    "version": "1.0.0",
+    "description": "The JavaScript remote logger.",
+    "main": "index.js",
+    "scripts": {
+        "start-client": "node ./remote-logger-g-cell-client/dist/index.js",
+        "start-server": "node ./remote-logger-g-cell-server/index.js",
+        "build": "babel ./remote-logger-g-cell-client/src --out-dir ./remote-logger-g-cell-client/dist",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Giuseppe Giulio Caponetto (aka G-Cell)",
+    "license": "MIT",
+    "dependencies": {
+        "@babel/polyfill": "^7.0.0",
+        "babel-register": "^6.26.0",
+        "express": "^4.16.4",
+        "socket.io": "^2.1.1"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.1.2",
+        "@babel/core": "^7.1.2",
+        "@babel/preset-env": "^7.1.0"
+    }
+}
