@@ -18,6 +18,7 @@ class Loader {
 
   load() {
     let thisRef = this;
+    let console = window.console;
     console.info("proxying all calls from console to the remote server.");
 
     for (let property in console) {
@@ -32,16 +33,17 @@ class Loader {
       properties: this.properties
     });
     this.properties.forEach(property => {
-      let p = Object.assign("", property);
-
-      console[p] = () => {
-        console.info(`proxyied console.${p}: `, _objectSpread({}, arguments)); // console[p](...arguments);
+      console[property] = () => {
+        console.info(`proxyied console.${property}: `, _objectSpread({}, arguments)); // console[p](...arguments);
       };
     });
     this.test();
   }
 
   test() {
+    console.info("test", {
+      console
+    });
     console.info("this is a test log", {
       test: "test string"
     });

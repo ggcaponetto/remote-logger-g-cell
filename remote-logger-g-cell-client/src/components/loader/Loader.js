@@ -5,6 +5,7 @@ export default class Loader{
 
     load(){
         let thisRef = this;
+        let console = window.console;
         console.info("proxying all calls from console to the remote server.");
         for(let property in console){
             if(
@@ -19,9 +20,8 @@ export default class Loader{
         console["info"]("proxying all calls from console to the remote server.", {console, properties: this.properties});
 
         this.properties.forEach((property) => {
-            let p = Object.assign("", property);
-            console[p] = () => {
-                console.info(`proxyied console.${p}: `, {...arguments});
+            console[property] = () => {
+                console.info(`proxyied console.${property}: `, {...arguments});
                 // console[p](...arguments);
             };
         });
@@ -31,6 +31,7 @@ export default class Loader{
 
 
     test(){
+        console.info("test", {console});
         console.info("this is a test log", {test:"test string"});
     }
 }
