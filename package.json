@@ -4,9 +4,10 @@
     "description": "The JavaScript remote logger.",
     "main": "index.js",
     "scripts": {
-        "start-client": "node ./remote-logger-g-cell-client/dist/index.js",
+        "start-client": "npm run build && node ./remote-logger-g-cell-client/transpiled/index.js",
         "start-server": "node ./remote-logger-g-cell-server/index.js",
-        "build": "babel ./remote-logger-g-cell-client/src --out-dir ./remote-logger-g-cell-client/dist",
+        "build": "babel ./remote-logger-g-cell-client/src --out-dir ./remote-logger-g-cell-client/transpiled",
+        "build-webpack": "webpack --config webpack.config.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Giuseppe Giulio Caponetto (aka G-Cell)",
@@ -20,6 +21,7 @@
     "devDependencies": {
         "@babel/cli": "^7.1.2",
         "@babel/core": "^7.1.2",
-        "@babel/preset-env": "^7.1.0"
+        "@babel/preset-env": "^7.1.0",
+        "webpack": "^4.22.0"
     }
 }
