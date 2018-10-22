@@ -7,24 +7,22 @@ exports.default = void 0;
 
 require("core-js/modules/web.dom.iterable");
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 class Loader {
   constructor() {
     this.properties = [];
+    this.rlgc = {};
   }
 
   load() {
     let thisRef = this;
-    let console = window.console;
+    let consoleRef = console;
     console.info("proxying all calls from console to the remote server.");
 
     for (let property in console) {
       if (console.hasOwnProperty(property) && typeof console[property] === "function") {
         console.info(`proxy setup for console.${property}`);
         this.properties.push(`${property}`);
+        console[property].bind(consoleRef);
       }
     }
 
@@ -33,17 +31,29 @@ class Loader {
       properties: this.properties
     });
     this.properties.forEach(property => {
-      console[property] = () => {
-        console.info(`proxyied console.${property}: `, _objectSpread({}, arguments)); // console[p](...arguments);
+      let consoleFunction = consoleRef[property]; // Redefine console.log method with a custom function
+
+      consoleRef[property] = function () {
+        thisRef.toRemote(consoleFunction, ["proxy", {
+          t: "test"
+        }]);
+        /**
+         Note: If you want to preserve the same action as the original method does
+         then use the following line :
+           we use apply to invoke the method on console using the original arguments.
+         Simply calling consoleFunction(message) would fail because LOG depends on the console
+         */
+
+        consoleFunction.apply(consoleRef, arguments);
       };
     });
-    this.test();
+  }
+
+  toRemote(consoleFunction, args) {
+    consoleFunction.apply(console, args);
   }
 
   test() {
-    console.info("test", {
-      console
-    });
     console.info("this is a test log", {
       test: "test string"
     });

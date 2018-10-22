@@ -8,5 +8,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   console.log("starting remote-logger-g-cell.");
   let loader = new _Loader.default();
   loader.load();
+  loader.test();
   return this;
 })();

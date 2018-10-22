@@ -5,5 +5,6 @@ import Loader from "./loader/Loader";
 
     let loader = new Loader();
     loader.load();
+    loader.test();
     return this;
 })();
