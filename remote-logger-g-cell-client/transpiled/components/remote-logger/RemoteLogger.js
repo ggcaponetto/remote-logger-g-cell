@@ -11,12 +11,20 @@ var _socket = _interopRequireDefault(require("socket.io-client"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const socket = (0, _socket.default)('http://localhost');
+const PORT = 5000;
+const HOST = `http://localhost`;
+const socket = (0, _socket.default)(`${HOST}:${PORT}`);
 
 class RemoteLogger {
   constructor() {
     /* the properties of the console object that we are going to intercept */
     this.properties = [];
+    socket.on('connect', () => {
+      console.info(`rlgcc connected via socket.io`);
+    });
+    socket.on('disconnect', () => {
+      console.info(`rlgcc disconnected from socket.io`);
+    });
   }
 
   wrapConsole() {
@@ -26,7 +34,7 @@ class RemoteLogger {
 
     for (let property in console) {
       if (console.hasOwnProperty(property) && typeof console[property] === "function") {
-        console.info(`proxy setup for console.${property}`);
+        // console.info(`proxy setup for console.${property}`);
         this.properties.push(`${property}`);
         console[property].bind(consoleRef);
       }
@@ -36,12 +44,12 @@ class RemoteLogger {
       console,
       properties: this.properties
     });
-    this.properties.forEach(property => {
-      let consoleFunction = consoleRef[property];
+    this.properties.forEach(consoleProperty => {
+      let consoleFunction = consoleRef[consoleProperty];
       /* Redefine console.log method with a custom function */
 
-      consoleRef[property] = function () {
-        thisRef.toRemote(consoleFunction, ["proxy", {
+      consoleRef[consoleProperty] = function () {
+        thisRef.toRemote(consoleFunction, consoleProperty, ["proxy", {
           t: "test"
         }]);
         /**
@@ -56,12 +64,16 @@ class RemoteLogger {
     });
   }
 
-  toRemote(consoleFunction, args) {
+  toRemote(consoleFunction, consoleProperty, args) {
     consoleFunction.apply(console, args);
+    socket.emit('event', JSON.stringify({
+      consoleProperty: consoleProperty,
+      arguments: args
+    }, null, 4));
   }
 
   test() {
-    console.info("this is a test log", {
+    console.info("this is a test log!!!!kkpp", {
       test: "test string"
     });
   }

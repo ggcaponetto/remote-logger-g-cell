@@ -5,6 +5,7 @@ var PORT = 5000;
 
 io.on('connection', function(socket){
     socket.on('message', function(args){
+        /* print out the message received from the client */
         console.log('message: ', args);
     });
 });
