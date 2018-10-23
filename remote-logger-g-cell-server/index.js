@@ -4,9 +4,9 @@ var io = require('socket.io')(http);
 var PORT = 5000;
 
 io.on('connection', function(socket){
-    socket.on('message', function(args){
+    socket.on('event', function(args){
         /* print out the message received from the client */
-        console.log('message: ', args);
+        console.log('event: ', args);
     });
 });
 

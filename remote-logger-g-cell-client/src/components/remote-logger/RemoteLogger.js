@@ -40,7 +40,7 @@ export default class RemoteLogger {
             let consoleFunction = consoleRef[consoleProperty];
             /* Redefine console.log method with a custom function */
             consoleRef[consoleProperty] = function () {
-                thisRef.toRemote(consoleFunction, consoleProperty, ["proxy", {t: "test"}]);
+                thisRef.toRemote(consoleFunction, consoleProperty, arguments);
                 /**
                  Note: If you want to preserve the same action as the original method does
                  then use the following line :
@@ -65,6 +65,6 @@ export default class RemoteLogger {
     }
 
     test() {
-        console.info("this is a test log!!!!kkpp", {test: "test string"});
+        console.info("this is a test log.", {test: "test string"});
     }
 }
