@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03dc7e1f-f7a0-4bc1-a3a1-7a55c2eae875" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-logger-g-cell-client/bundle/rlgcc.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-logger-g-cell-client/src/components/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-logger-g-cell-client/src/components/remote-logger/RemoteLogger.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-logger-g-cell-client/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-logger-g-cell-client/transpiled/components/loader/Loader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-logger-g-cell-client/transpiled/components/loader/RemoteLogger.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-logger-g-cell-client/transpiled/components/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-logger-g-cell-client/transpiled/components/remote-logger/RemoteLogger.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-logger-g-cell-client/transpiled/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-logger-g-cell-server/components/MessageHandler.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-logger-g-cell-server/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote-logger-ui/ui" beforeDir="false" afterPath="$PROJECT_DIR$/remote-logger-ui/ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-frontend/test" beforeDir="false" afterPath="$PROJECT_DIR$/test-frontend/test" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,8 +65,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test-frontend/test/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="20" column="15" lean-forward="true" selection-end-line="21" />
+            <state relative-caret-position="42">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -196,6 +181,11 @@
             <path>
               <item name="remote-logger-g-cell" type="b2602c69:ProjectViewProjectNode" />
               <item name="remote-logger-g-cell" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remote-logger-g-cell" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remote-logger-g-cell" type="462c0819:PsiDirectoryNode" />
+              <item name="test-frontend" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -347,7 +337,7 @@
       <workItem from="1540320618772" duration="7126000" />
       <workItem from="1540327950296" duration="5402000" />
       <workItem from="1540362301698" duration="2176000" />
-      <workItem from="1540412134594" duration="9633000" />
+      <workItem from="1540412134594" duration="9905000" />
     </task>
     <task id="LOCAL-00001" summary="add nodemon, add frontend test">
       <created>1540331995368</created>
@@ -367,11 +357,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39835000" />
+    <option name="totallyTimeSpent" value="40107000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="TODO" order="11" />
@@ -813,8 +802,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test-frontend/test/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="20" column="15" lean-forward="true" selection-end-line="21" />
+        <state relative-caret-position="42">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
