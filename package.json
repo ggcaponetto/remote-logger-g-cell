@@ -1,19 +1,27 @@
 {
-  "name": "remote-logger-g-cell-complete",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Everything is ok.\" && exit 0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ggcaponetto/remote-logger-g-cell.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ggcaponetto/remote-logger-g-cell/issues"
-  },
-  "homepage": "https://github.com/ggcaponetto/remote-logger-g-cell#readme"
+    "name": "remote-logger-g-cell-complete",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "bin": {
+        "server": "",
+        "ui": "",
+        "rlgc-server": "./bin/global.js",
+        "rlgc-client": "./bin/global.js"
+    },
+    "preferGlobal": true,
+    "scripts": {
+        "test": "echo \"Everything is ok.\" && exit 0",
+        "rlgc-server": "cd ./remote-logger-g-cell && npm run start-server"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ggcaponetto/remote-logger-g-cell.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ggcaponetto/remote-logger-g-cell/issues"
+    },
+    "homepage": "https://github.com/ggcaponetto/remote-logger-g-cell#readme"
 }
