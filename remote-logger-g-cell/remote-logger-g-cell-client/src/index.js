@@ -1,2 +1,4 @@
 require("babel-register");
-require("./components/main.js");
+import rlgc from "./components/main.js";
+
+export default rlgc;

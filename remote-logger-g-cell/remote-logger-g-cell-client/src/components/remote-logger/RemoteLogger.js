@@ -1,20 +1,29 @@
 import io from 'socket.io-client';
 
-const PORT = 5000;
-const HOST = `http://localhost`;
-const socket = io(`${HOST}:${PORT}`);
-
 export default class RemoteLogger {
     constructor() {
         /* the properties of the console object that we are going to intercept */
         this.properties = [];
-        socket.on('connect', () => {
+        this.state = {
+            PORT: null,
+            HOST: null,
+            socket: null,
+        }
+    }
+
+    setSocket(host, port) {
+        this.state.PORT = port || 5000;
+        this.state.HOST = host || `http://localhost`;
+        this.state.socket = io(`${HOST}:${PORT}`);
+
+        this.state.socket.on('connect', () => {
             console.info(`rlgcc connected via socket.io`);
         });
-        socket.on('disconnect', () => {
+        this.state.socket.on('disconnect', () => {
             console.info(`rlgcc disconnected from socket.io`);
         });
     }
+
 
     wrapConsole() {
         let thisRef = this;
@@ -56,7 +65,7 @@ export default class RemoteLogger {
 
     toRemote(consoleFunction, consoleProperty, args) {
         consoleFunction.apply(console, args);
-        socket.emit(
+        this.state.socket.emit(
             'event',
             JSON.stringify({
                 consoleProperty: consoleProperty, args: args

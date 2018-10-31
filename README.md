@@ -16,12 +16,16 @@ In your webapp import the client library.
 
 ``import * as rlgc from "remote-logger-g-cell";``
 
+Cofigure the client library to send the logs to the host running the server app.
+
+``rlgc.init("http://localhost", 3005);``
+
 ### start the server on a given ports
 
-``rlgc --mode server --ws-port 5000 --ui-port 3000``
+``rlgc --mode server --ws-port 5000 --ui-port 3005``
 
 ### start the console on a given port
 
-``rlgc --mode ui --ui-port 3333``
+``rlgc --mode ui --ui-port 3010``
 
-Now you can open [http://localhost:3334/](http://localhost:3334/) and see your logs.
+Now you can open [http://localhost:3310/](http://localhost:3310/) and see your logs.
