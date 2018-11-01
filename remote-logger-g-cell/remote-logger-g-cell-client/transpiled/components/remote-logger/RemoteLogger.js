@@ -25,12 +25,12 @@ class RemoteLogger {
   setSocket(host, port) {
     this.state.PORT = port || 5000;
     this.state.HOST = host || `http://localhost`;
-    this.state.socket = (0, _socket.default)(`${HOST}:${PORT}`);
+    this.state.socket = (0, _socket.default)(`${this.state.HOST}:${this.state.PORT}`);
     this.state.socket.on('connect', () => {
-      console.info(`rlgcc connected via socket.io`);
+      console.info(`rlgcc connected via socket.io`, this.state);
     });
     this.state.socket.on('disconnect', () => {
-      console.info(`rlgcc disconnected from socket.io`);
+      console.info(`rlgcc disconnected from socket.io`, this.state);
     });
   }
 
@@ -71,10 +71,18 @@ class RemoteLogger {
 
   toRemote(consoleFunction, consoleProperty, args) {
     consoleFunction.apply(console, args);
-    this.state.socket.emit('event', JSON.stringify({
-      consoleProperty: consoleProperty,
-      args: args
-    }, null, 4));
+    let msg = null;
+
+    try {
+      msg = JSON.stringify({
+        consoleProperty: consoleProperty,
+        args: args
+      }, null, 4);
+    } catch (e) {
+      msg: e.message;
+    }
+
+    this.state.socket.emit('event', msg);
   }
 
   test() {

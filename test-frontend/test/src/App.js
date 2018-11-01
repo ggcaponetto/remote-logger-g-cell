@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import './App.css';
-import {rlgc} from "remote-logger-g-cell";
-console.debug("rlgc importedd", rlgc);
+import RLGC from "remote-logger-g-cell";
+let rlgc = new RLGC();
+rlgc.init("http://localhost", 5000);
+console.debug("rlgc imported", rlgc);
+
 // let rlgc = new RLGC();
 // rlgc.init("http://localhost", 3005);
 
