@@ -1,8 +1,4 @@
 require("babel-register");
-import rlgc from "./components/main.js";
-
+const rlgc = require("./components/main.js");
 console.log("imported rlgc into src/index.js", rlgc);
-
-module.exports = {
-    rlgc
-};
+module.exports = {rlgc: rlgc};

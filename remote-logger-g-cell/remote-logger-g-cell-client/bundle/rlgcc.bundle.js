@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -1203,7 +1213,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _main = _interopRequireDefault(__webpack_require__(/*! ./components/main.js */ \"./remote-logger-g-cell-client/transpiled/components/main.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n__webpack_require__(/*! babel-register */ \"./node_modules/babel-register/lib/browser.js\");\n\nconsole.log(\"imported rlgc into src/index.js\", _main.default);\nmodule.exports = {\n  rlgc: _main.default\n};\n\n//# sourceURL=webpack:///./remote-logger-g-cell-client/transpiled/index.js?");
+eval("\n\n__webpack_require__(/*! babel-register */ \"./node_modules/babel-register/lib/browser.js\");\n\nconst rlgc = __webpack_require__(/*! ./components/main.js */ \"./remote-logger-g-cell-client/transpiled/components/main.js\");\n\nconsole.log(\"imported rlgc into src/index.js\", rlgc);\nmodule.exports = {\n  rlgc: rlgc\n};\n\n//# sourceURL=webpack:///./remote-logger-g-cell-client/transpiled/index.js?");
 
 /***/ }),
 
@@ -1219,3 +1229,4 @@ eval("/* (ignored) */\n\n//# sourceURL=webpack:///ws_(ignored)?");
 /***/ })
 
 /******/ });
+});
