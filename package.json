@@ -6,13 +6,18 @@
     "bin": {
         "server": "",
         "ui": "",
-        "rlgc-server": "./bin/global.js",
-        "rlgc-client": "./bin/global.js"
+        "rlgc": "./bin/global.js"
     },
     "preferGlobal": true,
     "scripts": {
         "test": "echo \"Everything is ok.\" && exit 0",
-        "rlgc-server": "cd ./remote-logger-g-cell && npm run start-server"
+        "build-be": "cd ./remote-logger-g-cell && npm run build-webpack",
+        "build-fe": "cd ./remote-logger-ui/ui && npm run build",
+        "build": "npm run build-be && npm run build-fe",
+        "rlgc-server": "cd ./remote-logger-g-cell && npm run start-server",
+        "rlgc-ui": "cd ./remote-logger-ui/ui && npm run start",
+        "build-client": "cd ./remote-logger-g-cell && npm run build-webpack && cd ..",
+        "build-link-fe-lib": "npm run build-client && cd ./remote-logger-g-cell && npm link && cd .. && cd ./test-frontend/test && npm link remote-logger-g-cell && cd .."
     },
     "repository": {
         "type": "git",
@@ -23,5 +28,8 @@
     "bugs": {
         "url": "https://github.com/ggcaponetto/remote-logger-g-cell/issues"
     },
-    "homepage": "https://github.com/ggcaponetto/remote-logger-g-cell#readme"
+    "homepage": "https://github.com/ggcaponetto/remote-logger-g-cell#readme",
+    "devDependencies": {
+        "cross-env": "^5.2.0"
+    }
 }
