@@ -1179,7 +1179,7 @@ eval("\n\nvar alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqr
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\n\nvar _RemoteLogger = _interopRequireDefault(__webpack_require__(/*! ./remote-logger/RemoteLogger */ \"./remote-logger-g-cell-client/transpiled/components/remote-logger/RemoteLogger.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nconsole.log(\"importing remote-logger-g-cell.\");\nconst rlgc = {\n  init: function init(host, port) {\n    console.log(\"initializing remote-logger-g-cell.\");\n    let remoteLogger = new _RemoteLogger.default();\n    remoteLogger.setSocket(host, port);\n    remoteLogger.wrapConsole();\n    remoteLogger.test();\n  }\n};\nvar _default = rlgc;\nexports.default = _default;\n\n//# sourceURL=webpack:///./remote-logger-g-cell-client/transpiled/components/main.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\n\nvar _RemoteLogger = _interopRequireDefault(__webpack_require__(/*! ./remote-logger/RemoteLogger */ \"./remote-logger-g-cell-client/transpiled/components/remote-logger/RemoteLogger.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nclass Main {\n  constructor() {\n    console.log(\"Main constructed.\");\n  }\n\n  init(host, port) {\n    console.log(\"initializing remote-logger-g-cell.\");\n    let remoteLogger = new _RemoteLogger.default();\n    remoteLogger.setSocket(host, port);\n    remoteLogger.wrapConsole();\n    remoteLogger.test();\n  }\n\n}\n\nexports.default = Main;\n\n//# sourceURL=webpack:///./remote-logger-g-cell-client/transpiled/components/main.js?");
 
 /***/ }),
 
@@ -1203,7 +1203,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\n\nvar _main = _interopRequireDefault(__webpack_require__(/*! ./components/main.js */ \"./remote-logger-g-cell-client/transpiled/components/main.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n__webpack_require__(/*! babel-register */ \"./node_modules/babel-register/lib/browser.js\");\n\nvar _default = _main.default;\nexports.default = _default;\n\n//# sourceURL=webpack:///./remote-logger-g-cell-client/transpiled/index.js?");
+eval("\n\nvar _main = _interopRequireDefault(__webpack_require__(/*! ./components/main.js */ \"./remote-logger-g-cell-client/transpiled/components/main.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n__webpack_require__(/*! babel-register */ \"./node_modules/babel-register/lib/browser.js\");\n\nconsole.log(\"imported rlgc into src/index.js\", _main.default);\nmodule.exports = {\n  rlgc: _main.default\n};\n\n//# sourceURL=webpack:///./remote-logger-g-cell-client/transpiled/index.js?");
 
 /***/ }),
 
