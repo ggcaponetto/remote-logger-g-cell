@@ -14,7 +14,7 @@ Install the client library.
 In your webapp import the client library.
 
 ``
-let rlgc = new RLGC();
+let rlgc = new RLGC();  
 rlgc.init("http://localhost", 5000);
 ``
 
