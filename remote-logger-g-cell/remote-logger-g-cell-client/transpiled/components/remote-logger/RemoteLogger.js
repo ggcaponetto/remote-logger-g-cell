@@ -37,7 +37,7 @@ class RemoteLogger {
   wrapConsole() {
     let thisRef = this;
     let consoleRef = console;
-    console.info("proxying all calls from console to the remote server.");
+    console.info("RLGC is proxying all calls from console to the remote server.");
 
     for (let property in console) {
       if (console.hasOwnProperty(property) && typeof console[property] === "function") {
@@ -47,10 +47,6 @@ class RemoteLogger {
       }
     }
 
-    console["info"]("proxying all calls from console to the remote server.", {
-      console,
-      properties: this.properties
-    });
     this.properties.forEach(consoleProperty => {
       let consoleFunction = consoleRef[consoleProperty];
       /* Redefine console.log method with a custom function */
@@ -70,7 +66,6 @@ class RemoteLogger {
   }
 
   toRemote(consoleFunction, consoleProperty, args) {
-    consoleFunction.apply(console, args);
     let msg = null;
 
     try {
@@ -79,7 +74,8 @@ class RemoteLogger {
         args: args
       }, null, 4);
     } catch (e) {
-      msg: e.message;
+      let msg = e.message;
+      this.state.socket.emit('event', msg);
     }
 
     this.state.socket.emit('event', msg);

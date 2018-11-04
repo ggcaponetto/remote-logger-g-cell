@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const io = require('socket.io-client');
 
-const PORT = 3000;
+const PORT = process.env.SOCKET_PORT || 4000;
 const HOST = `http://localhost:${PORT}`;
 const socket = io(HOST);
 

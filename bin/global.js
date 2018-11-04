@@ -4,14 +4,15 @@
 printArgs();
 var mode = getArgsValue("--mode");
 var wsPort = getArgsValue("--ws-port");
-var uiPort = getArgsValue("--ui-port");
+var consoleAppPort = getArgsValue("--console-app-port");
+var consoleWSPort = getArgsValue("--console-ws-port");
 
 
 var isWin = process.platform === "win32";
 console.log("you are runnung on windows: " + isWin);
-console.log("you are runnung with args: ", {mode: mode, wsPort, uiPort});
+console.log("you are runnung with args: ", {mode: mode, wsPort, consoleWSPort, consoleAppPort});
 
-function setEnvsAndRunScript(nodeArgs){
+function setEnvsAndRunScript(nodeArgs) {
     var spawn = require('child_process').spawn;
 
     var child = spawn(isWin ? "node.exe" : "node", nodeArgs);
@@ -47,8 +48,8 @@ switch (mode) {
         setEnvsAndRunScript(
             [
                 "./node_modules/cross-env/dist/bin/cross-env-shell.js",
-                "RLGC_WS_PORT="+wsPort,
-                "RLGC_UI_PORT="+uiPort,
+                "RLGC_WS_PORT=" + wsPort,
+                "RLGC_UI_PORT=" + consoleWSPort,
                 "npm run rlgc-server"
             ]
         );
@@ -57,8 +58,19 @@ switch (mode) {
         setEnvsAndRunScript(
             [
                 "./node_modules/cross-env/dist/bin/cross-env-shell.js",
-                "PORT="+uiPort,
+                "PORT=" + consoleAppPort,
+                "SOCKET_PORT=" + consoleWSPort,
                 "npm run rlgc-ui"
+            ]
+        );
+        break;
+    case "test-app":
+        setEnvsAndRunScript(
+            [
+                "./node_modules/cross-env/dist/bin/cross-env-shell.js",
+                "PORT=" + consoleAppPort,
+                "SOCKET_PORT=" + consoleWSPort,
+                "npm run rlgc-test-app"
             ]
         );
         break;

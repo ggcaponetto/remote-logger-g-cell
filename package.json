@@ -16,6 +16,7 @@
         "build": "npm run build-be && npm run build-fe",
         "rlgc-server": "cd ./remote-logger-g-cell && npm run start-server",
         "rlgc-ui": "cd ./remote-logger-ui/ui && npm run start",
+        "rlgc-test-app": "cd ./test-frontend/test && npm run start",
         "build-client": "cd ./remote-logger-g-cell && npm run build-webpack && cd ..",
         "build-link-fe-lib": "npm run build-client && cd ./remote-logger-g-cell && npm link && cd .. && cd ./test-frontend/test && npm link remote-logger-g-cell && cd .."
     },

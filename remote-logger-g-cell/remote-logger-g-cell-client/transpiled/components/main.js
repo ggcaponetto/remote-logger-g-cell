@@ -10,16 +10,13 @@ var _RemoteLogger = _interopRequireDefault(require("./remote-logger/RemoteLogger
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 class Main {
-  constructor() {
-    console.log("Main constructed.");
-  }
+  constructor() {}
 
   init(host, port) {
-    console.log("initializing remote-logger-g-cell.");
+    console.log("initializing RLGC.");
     let remoteLogger = new _RemoteLogger.default();
     remoteLogger.setSocket(host, port);
     remoteLogger.wrapConsole();
-    remoteLogger.test();
   }
 
 }

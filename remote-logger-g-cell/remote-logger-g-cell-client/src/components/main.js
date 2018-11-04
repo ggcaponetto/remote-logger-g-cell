@@ -2,14 +2,11 @@ import RemoteLogger from "./remote-logger/RemoteLogger";
 
 
 export default class Main{
-    constructor(){
-        console.log("Main constructed.");
-    }
+    constructor(){}
     init(host, port){
-        console.log("initializing remote-logger-g-cell.");
+        console.log("initializing RLGC.");
         let remoteLogger = new RemoteLogger();
         remoteLogger.setSocket(host, port);
         remoteLogger.wrapConsole();
-        remoteLogger.test();
     }
 }

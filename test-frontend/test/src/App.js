@@ -2,17 +2,14 @@ import React, {Component} from 'react';
 import './App.css';
 import RLGC from "remote-logger-g-cell";
 let rlgc = new RLGC();
-rlgc.init("http://localhost", 5000);
-console.debug("rlgc imported", rlgc);
-
-// let rlgc = new RLGC();
-// rlgc.init("http://localhost", 3005);
+rlgc.init("http://localhost", process.env.SOCKET_PORT);
 
 class App extends Component {
     render() {
         return (
             <div className="App">
-                <h1>test - 1</h1>
+                <h1>Test App</h1>
+                <h2>Press the button to invoke some console functions and see them pop up on the rlgc user interface.</h2>
                 <button onClick={() => {
                     console.debug("test-debug", {ts: +new Date()});
                     console.info("test-info", {ts: +new Date()});
@@ -20,7 +17,7 @@ class App extends Component {
                     console.warn("test-warn", {ts: +new Date()});
                     console.error("test-error", {ts: +new Date()});
                 }}>
-                    test all
+                    Test
                 </button>
             </div>
         );

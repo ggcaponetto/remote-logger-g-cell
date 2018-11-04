@@ -28,7 +28,7 @@ export default class RemoteLogger {
     wrapConsole() {
         let thisRef = this;
         let consoleRef = console;
-        console.info("proxying all calls from console to the remote server.");
+        console.info("RLGC is proxying all calls from console to the remote server.");
         for (let property in console) {
             if (
                 console.hasOwnProperty(property) &&
@@ -39,11 +39,6 @@ export default class RemoteLogger {
                 console[property].bind(consoleRef);
             }
         }
-
-        console["info"]("proxying all calls from console to the remote server.", {
-            console,
-            properties: this.properties
-        });
 
         this.properties.forEach((consoleProperty) => {
             let consoleFunction = consoleRef[consoleProperty];
@@ -64,14 +59,17 @@ export default class RemoteLogger {
 
 
     toRemote(consoleFunction, consoleProperty, args) {
-        consoleFunction.apply(console, args);
         let msg = null;
         try {
             msg = JSON.stringify({
                 consoleProperty: consoleProperty, args: args
             }, null, 4);
         } catch (e) {
-            msg:e.message
+            let msg = e.message;
+            this.state.socket.emit(
+                'event',
+                msg
+            );
         }
         this.state.socket.emit(
             'event',
