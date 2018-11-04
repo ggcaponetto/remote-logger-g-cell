@@ -13,10 +13,10 @@ Install the client library.
 
 In your webapp import the client library.
 
-``
-let rlgc = new RLGC();  
+```
+let rlgc = new RLGC();
 rlgc.init("http://localhost", 5000);
-``
+```
 
 The port used must match __--ws-port__ when running ``rlgc --mode server --ws-port 5000 --console-ws-port 4000``, just 
 like in the example above.
