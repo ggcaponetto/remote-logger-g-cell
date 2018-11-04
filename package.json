@@ -1,7 +1,7 @@
 {
-    "name": "remote-logger-g-cell-complete",
+    "name": "rlgc",
     "version": "1.0.0",
-    "description": "",
+    "description": "A JavaScript remote logger.",
     "main": "index.js",
     "bin": {
         "server": "",
@@ -18,14 +18,14 @@
         "rlgc-ui": "cd ./remote-logger-ui/ui && npm run start",
         "rlgc-test-app": "cd ./test-frontend/test && npm run start",
         "build-client": "cd ./remote-logger-g-cell && npm run build-webpack && cd ..",
-        "build-link-fe-lib": "npm run build-client && cd ./remote-logger-g-cell && npm link && cd .. && cd ./test-frontend/test && npm link remote-logger-g-cell && cd .."
+        "build-link-fe-lib": "npm run build-client && cd ./remote-logger-g-cell && npm link && cd .. && cd ./test-frontend/test && npm link rlgc-client && cd .."
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ggcaponetto/remote-logger-g-cell.git"
     },
-    "author": "",
-    "license": "ISC",
+    "author": "Giuseppe Giulio Caponetto (aka G-Cell)",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/ggcaponetto/remote-logger-g-cell/issues"
     },

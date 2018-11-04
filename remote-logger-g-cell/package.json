@@ -1,7 +1,7 @@
 {
-    "name": "remote-logger-g-cell",
+    "name": "rlgc-client",
     "version": "1.0.0",
-    "description": "The JavaScript remote logger.",
+    "description": "A JavaScript remote logger.",
     "main": "index.js",
     "scripts": {
         "nodemon-all": "concurrently --kill-others \"npm run nodemon-client\" \"npm run nodemon-server\" \"npm run start-react-app\"",

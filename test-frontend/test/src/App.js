@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import RLGC from "remote-logger-g-cell";
+import RLGC from "rlgc-client";
 let rlgc = new RLGC();
 rlgc.init("http://localhost", process.env.SOCKET_PORT);
 

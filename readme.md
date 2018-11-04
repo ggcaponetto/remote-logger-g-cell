@@ -1,15 +1,19 @@
 [![CircleCI](https://circleci.com/gh/ggcaponetto/remote-logger-g-cell.svg?style=svg)](https://circleci.com/gh/ggcaponetto/remote-logger-g-cell)
 
-## remote-logger-g-cell
+## rlgc
 
 This is a JavaScript remote logger. It enables you to read logs from a webapp running on any device such as smartphones
 and read the console logs in the browser, with minimal setup.
 
 ### Getting started
 
+Install the server utilities.
+
+``npm i -g rlgc``
+
 Install the client library.
 
-``npm install remote-logger-g-cell``
+``npm install rlgc-client``
 
 In your webapp import the client library.
 
